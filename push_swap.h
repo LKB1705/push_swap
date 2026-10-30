@@ -33,6 +33,7 @@ t_node  *create_stack_a(int argc, char **argv);
 t_node	*ft_lstlast(t_node *lst);
 t_node	*ft_lstnew(int content, int   i, t_node **stack_a);
 void    free_stack(t_node **stack);
+void	ft_lstadd_front(t_node **lst, t_node *new);
 void	ft_lstadd_back(t_node **lst, t_node *new);
 int	ft_atoi(char *str);
 

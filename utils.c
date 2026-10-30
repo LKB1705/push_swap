@@ -26,6 +26,21 @@ int	ft_atoi(char *str)
 	return (nbr * sign);
 }
 
+void	ft_lstadd_front(t_node **lst, t_node *new)
+{
+	new->index = 0;
+	new->prev = NULL;
+	new->next = *lst;
+	*lst = new;
+	while (lst->next != NULL || lst->next == NULL)
+	{
+		if (lst->next == NULL)
+			return ;
+		lst = lst->next;
+		lst->index += 1;
+	}
+}
+
 void	ft_lstadd_back(t_node **lst, t_node *new)
 {
 	t_node	*last;
@@ -71,4 +86,19 @@ t_node	*ft_lstnew(int content, int   i, t_node **stack_a)
 	stack_n->next = NULL;
     stack_n->prev = NULL;
 	return (stack_n);
+}
+
+void	free_stack(t_node **stack)
+{
+	t_node	*tmp;
+
+	if (!stack)
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
 }
