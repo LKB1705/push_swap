@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.c                                         :+:    :+:           */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oracio <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 14:20:04 by oracio            #+#    #+#             */
-/*   Updated: 2026/10/30 12:43:44 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/02 11:10:38 by obohbot        ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 t_node	*create_stack_a(int argc, char **argv)
 {
-	int	i;
-	int	value;
+	int		i;
+	int		value;
 	t_node	*stack_a;
-	//t_node	*stack_b;
 	t_node	*stack_n;
 
 	if (argc < 2)
 		return (NULL);
 	stack_a = NULL;
-	//stack_b = NULL;
 	i = 1;
 	while (argv[i])
 	{
@@ -50,10 +48,12 @@ int	main(int argc, char **argv)
 		printf("La prochaine adresse est: %p\n", stack_a->next);
 		printf("L'adresse précedente est: %p\n", stack_a->prev);
 		if (stack_a->next == NULL)
-			return(0);
+			return (0);
 		else
 			stack_a = stack_a->next;
 	}
 	free_stack(&stack_a);
 	return (0);
 }
+
+/*A voir pour ajouter la creation de la stack_b*/

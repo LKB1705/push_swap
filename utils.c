@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                         ::::::::           */
+/*   utils.c                                             :+:    :+:           */
+/*                                                      +:+                   */
+/*   By: obohbot <marvin@42.fr>                        +#+                    */
+/*                                                    +#+                     */
+/*   Created: 2026/11/02 11:24:32 by obohbot        #+#    #+#                */
+/*   Updated: 2026/11/02 11:26:54 by obohbot        ########   odam.nl        */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -47,12 +58,21 @@ void	ft_lstadd_back(t_node **lst, t_node *new)
 
 	last = ft_lstlast(*lst);
 	if (!last)
+	{
 		*lst = new;
+		new->index = 0;
+	}
 	else
-    {
+	{
 		last->next = new;
-        new->prev = last;
-    }
+		new->prev = last;
+		new->index = last->index + 1;
+	}
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+		lst->index -= 1;
+	}
 }
 
 t_node	*ft_lstlast(t_node *lst)
@@ -67,38 +87,23 @@ t_node	*ft_lstlast(t_node *lst)
 	return (tmp);
 }
 
-t_node	*ft_lstnew(int content, int   i, t_node **stack_a)
+t_node	*ft_lstnew(int content, int i, t_node **stack_a)
 {
 	t_node	*stack_n;
 
 	stack_n = malloc(sizeof (t_node));
 	if (!stack_n)
-    {
-        free_stack(stack_a);
-		return (NULL);
-    }
-	stack_n->value = content;
-    stack_n->index = i - 1;
-    stack_n->cost = 0;
-    stack_n->abv_med = 0;
-    stack_n->chpst = 0;
-    stack_n->target = NULL;
-	stack_n->next = NULL;
-    stack_n->prev = NULL;
-	return (stack_n);
-}
-
-void	free_stack(t_node **stack)
-{
-	t_node	*tmp;
-
-	if (!stack)
-		return ;
-	while (*stack)
 	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
+		free_stack(stack_a);
+		return (NULL);
 	}
-	*stack = NULL;
+	stack_n->value = content;
+	stack_n->index = i - 1;
+	stack_n->cost = 0;
+	stack_n->abv_med = 0;
+	stack_n->chpst = 0;
+	stack_n->target = NULL;
+	stack_n->next = NULL;
+	stack_n->prev = NULL;
+	return (stack_n);
 }
