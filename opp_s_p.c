@@ -6,7 +6,7 @@
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/30 10:34:23 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/02 11:41:03 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/02 14:28:27 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sa(t_node **stack)
 	stack->value = tmp_0;
 	stack = stack->prev;
 	stack->value = tmp_1;
-	ft_printf("sa");
+	ft_printf("sa\n");
 }
 
 void	sb(t_node **stack)
@@ -41,7 +41,7 @@ void	sb(t_node **stack)
 	stack->value = tmp_0;
 	stack = stack->prev;
 	stack->value = tmp_1;
-	ft_printf("sb");
+	ft_printf("sb\n");
 }
 
 void	ss(t_node **stack_a, t_node **stack_b)
@@ -65,17 +65,17 @@ void	ss(t_node **stack_a, t_node **stack_b)
 	stack_b->value = tmp_0;
 	stack_b = stack_b->prev;
 	stack_b->value = tmp_1;
-	ft_printf("ss");
+	ft_printf("ss\n");
 }
 
 void	pa(t_node **stack_a, t_node *new)
 {
 	ft_lstadd_front(stack_a, new);
-	ft_printf("pa");
+	ft_printf("pa\n");
 }
 
 void	pb(t_node **stack_b, t_node *new)
 {
 	ft_lstadd_front(stack_b, new);
-	ft_printf("pb");
+	ft_printf("pb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 11:35:44 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/02 11:44:19 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/02 14:28:54 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 void	ra(t_node **stack_a, t_node *first)
 {
 	ft_lstadd_back(stack_a, first);
-	ft_printf("ra");
+	ft_printf("ra\n");
 }
 
 void	rb(t_node **stack_b, t_node *first)
 {
 	ft_lstadd_back(stack_b, first)
-	ft_printf("rb");
+	ft_printf("rb\n");
 }
 
 void	rr(t_node **stack_a, t_node **stack_b, t_node *first_a, t_node *first_b)
 {
 	ft_lstadd_back(stack_a, first_a);
 	ft_lstadd_back(stack_b, first_b);
-	ft_printf("rr");
+	ft_printf("rr\n");
 }
