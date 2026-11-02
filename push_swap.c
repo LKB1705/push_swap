@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                         :+:    :+:           */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oracio <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 14:20:04 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/02 11:10:38 by obohbot        ########   odam.nl        */
+/*   Updated: 2026/11/02 21:39:20 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ t_node	*create_stack_a(int argc, char **argv)
 	{
 		value = ft_atoi(argv[i]);
 		stack_n = ft_lstnew(value, i, &stack_a);
+		if (!stack_n)
+			return (NULL);
 		ft_lstadd_back(&stack_a, stack_n);
 		i++;
 	}
@@ -36,21 +38,16 @@ t_node	*create_stack_a(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
+	t_node	*tmp;
 
 	stack_a = create_stack_a(argc, argv);
-	printf("**stack_a: %p\n", &stack_a);
-	while (stack_a->next || stack_a->next == NULL)
+	if (!stack_a)
+		return (0);
+	tmp = stack_a;
+	while (tmp)
 	{
-		printf("=================\n");
-		printf("A l'adresse: %p\n", stack_a);
-		printf("La value est: %d\n", stack_a->value);
-		printf("L'index est: %d\n", stack_a->index);
-		printf("La prochaine adresse est: %p\n", stack_a->next);
-		printf("L'adresse précedente est: %p\n", stack_a->prev);
-		if (stack_a->next == NULL)
-			return (0);
-		else
-			stack_a = stack_a->next;
+		printf("value: %d, index: %d\n", tmp->value, tmp->index);
+		tmp = tmp->next;
 	}
 	free_stack(&stack_a);
 	return (0);

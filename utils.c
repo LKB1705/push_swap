@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                         ::::::::           */
-/*   utils.c                                             :+:    :+:           */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                      +:+                   */
 /*   By: obohbot <marvin@42.fr>                        +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/11/02 11:24:32 by obohbot        #+#    #+#                */
-/*   Updated: 2026/11/02 11:26:54 by obohbot        ########   odam.nl        */
+/*   Updated: 2026/11/02 18:59:15 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,39 +39,28 @@ int	ft_atoi(char *str)
 
 void	ft_lstadd_front(t_node **lst, t_node *new)
 {
-	new->index = 0;
 	new->prev = NULL;
 	new->next = *lst;
+	if (*lst)
+		(*lst)->prev = new;
 	*lst = new;
-	while (lst->next != NULL || lst->next == NULL)
-	{
-		if (lst->next == NULL)
-			return ;
-		lst = lst->next;
-		lst->index += 1;
-	}
 }
 
 void	ft_lstadd_back(t_node **lst, t_node *new)
 {
 	t_node	*last;
 
+	new->next = NULL;
 	last = ft_lstlast(*lst);
 	if (!last)
 	{
+		new->prev = NULL;
 		*lst = new;
-		new->index = 0;
 	}
 	else
 	{
 		last->next = new;
 		new->prev = last;
-		new->index = last->index + 1;
-	}
-	while (lst->next != NULL)
-	{
-		lst = lst->next;
-		lst->index -= 1;
 	}
 }
 

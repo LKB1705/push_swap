@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                         :+:    :+:           */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 10:37:01 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/02 11:46:47 by obohbot        ########   odam.nl        */
+/*   Updated: 2026/11/02 21:59:22 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include "ft_printf.h"
 
 typedef struct s_node
 {
@@ -29,24 +30,40 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
+/* push_swap.c */
 t_node	*create_stack_a(int argc, char **argv);
-t_node	*ft_lstlast(t_node *lst);
+
+/* utils.c */
+int		ft_atoi(char *str);
 t_node	*ft_lstnew(int content, int i, t_node **stack_a);
-void	free_stack(t_node **stack);
+t_node	*ft_lstlast(t_node *lst);
 void	ft_lstadd_front(t_node **lst, t_node *new);
 void	ft_lstadd_back(t_node **lst, t_node *new);
-void	pa(t_node **stack_a, t_node *new);
-void	pb(t_node **stack_b, t_node *new);
-void	ss(t_node **stack_a, t_node **stack_b);
-void	sb(t_node **stack);
-void	sa(t_node **stack);
-void	rrr(t_node **stack_a, t_node **stack_b, t_node *last_a, t_node *last_b);
-void	rrb(t_node **stack_b, t_node *last);
-void	rra(t_node **satck_a, t_node *last);
-void	rr(t_node **stack_a, t_node **stack_b,
-			t_node *first_a, t_node *first_b);
-void	rb(t_node **stack_b, t_node *first);
-void	ra(t_node **stack_a, t_node *first);
-int		ft_atoi(char *str);
+
+/* utils_bis.c */
+void	free_stack(t_node **stack);
+t_node	*ft_lstpop_front(t_node **lst);
+t_node	*ft_lstpop_back(t_node **lst);
+void	set_index(t_node *stack);
+int		stack_len(t_node *stack);
+
+/* opp_s.c */
+void	sa(t_node **a);
+void	sb(t_node **b);
+void	ss(t_node **a, t_node **b);
+
+/* opp_p.c */
+void	pa(t_node **a, t_node **b);
+void	pb(t_node **b, t_node **a);
+
+/* opp_r.c */
+void	ra(t_node **a);
+void	rb(t_node **b);
+void	rr(t_node **a, t_node **b);
+
+/* opp_rr.c */
+void	rra(t_node **a);
+void	rrb(t_node **b);
+void	rrr(t_node **a, t_node **b);
 
 #endif

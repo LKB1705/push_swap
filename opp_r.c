@@ -6,27 +6,37 @@
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 11:35:44 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/02 14:28:54 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/02 19:02:44 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_node **stack_a, t_node *first)
+static void	rotate(t_node **stack)
 {
-	ft_lstadd_back(stack_a, first);
+	t_node	*first;
+
+	if (!*stack || !(*stack)->next)
+		return ;
+	first = ft_lstpop_front(stack);
+	ft_lstadd_back(stack, first);
+}
+
+void	ra(t_node **a)
+{
+	rotate(a);
 	ft_printf("ra\n");
 }
 
-void	rb(t_node **stack_b, t_node *first)
+void	rb(t_node **b)
 {
-	ft_lstadd_back(stack_b, first)
+	rotate(b);
 	ft_printf("rb\n");
 }
 
-void	rr(t_node **stack_a, t_node **stack_b, t_node *first_a, t_node *first_b)
+void	rr(t_node **a, t_node **b)
 {
-	ft_lstadd_back(stack_a, first_a);
-	ft_lstadd_back(stack_b, first_b);
+	rotate(a);
+	rotate(b);
 	ft_printf("rr\n");
 }
