@@ -38,8 +38,10 @@ t_node	*create_stack_a(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
+	t_node	*stack_b;
 	t_node	*tmp;
 
+	stack_b = NULL;
 	stack_a = create_stack_a(argc, argv);
 	if (!stack_a)
 		return (0);
