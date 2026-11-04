@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "opps.h"
 
 static void	swap(t_node **stack)
 {

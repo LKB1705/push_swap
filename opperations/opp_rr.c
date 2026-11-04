@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "opps.h"
 
 static void	reverse_rotate(t_node **stack)
 {

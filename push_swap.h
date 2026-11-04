@@ -17,18 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "ft_printf.h"
-
-typedef struct s_node
-{
-	int				value;
-	int				index;
-	int				cost;
-	int				abv_med;
-	int				chpst;
-	struct s_node	*target;
-	struct s_node	*next;
-	struct s_node	*prev;
-}	t_node;
+# include "opps.h"
 
 /* push_swap.c */
 t_node	*create_stack_a(int argc, char **argv);
@@ -42,28 +31,7 @@ void	ft_lstadd_back(t_node **lst, t_node *new);
 
 /* utils_bis.c */
 void	free_stack(t_node **stack);
-t_node	*ft_lstpop_front(t_node **lst);
-t_node	*ft_lstpop_back(t_node **lst);
 void	set_index(t_node *stack);
 int		stack_len(t_node *stack);
-
-/* opp_s.c */
-void	sa(t_node **a);
-void	sb(t_node **b);
-void	ss(t_node **a, t_node **b);
-
-/* opp_p.c */
-void	pa(t_node **a, t_node **b);
-void	pb(t_node **b, t_node **a);
-
-/* opp_r.c */
-void	ra(t_node **a);
-void	rb(t_node **b);
-void	rr(t_node **a, t_node **b);
-
-/* opp_rr.c */
-void	rra(t_node **a);
-void	rrb(t_node **b);
-void	rrr(t_node **a, t_node **b);
 
 #endif
