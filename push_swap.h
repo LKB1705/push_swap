@@ -6,7 +6,7 @@
 /*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 10:37:01 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/03 11:49:16 by lfedal           ###   ########.fr       */
+/*   Updated: 2026/11/05 00:39:18 by lfedal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "ft_printf.h"
+# include <limits.h>
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_node
 {
