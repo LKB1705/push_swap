@@ -6,7 +6,7 @@
 /*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 21:24:43 by lfedal            #+#    #+#             */
-/*   Updated: 2026/11/05 11:20:21 by lfedal           ###   ########.fr       */
+/*   Updated: 2026/11/05 12:30:07 by lfedal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,42 +82,51 @@ while (a != NULL)
 return(0);
 }
 
-
-int	main(int argc, char **argv)
+void	error_exit(t_node **a)
 {
-	t_node	*a;
+			free_stack(a);
+			write(2, "Error\n", 6);
+			exit (1);
+}
+
+
+t_node *build_stack(int argc, char **argv)
+{
+		t_node	*a;
 	t_node	*node;
 	int		value;
 	int		i;
 
 	a = NULL;
 	i = 1;
-	while (i < argc)
+	while (argc > i)
 	{
 		if (!is_valid_number(argv[i]))
-		{
-			ft_printf("[%s] invalide (format)\n", argv[i]);
-			free_stack(&a);
-			return (1);
-		}
+			error_exit(&a);
 		if (!str_to_int(argv[i], &value))
-		{
-			ft_printf("[%s] invalide (depassement)\n", argv[i]);
-			free_stack(&a);
-			return (1);
-		}
+			error_exit(&a);
 		if (is_double(a, value))
-		{
-			ft_printf("[%s] invalide (doublon)\n", argv[i]);
-			free_stack(&a);
-			return (1);
-		}
+			error_exit(&a);
+
 		node = ft_lstnew(value, i, &a);
 		if (!node)
-			return (1);
+			error_exit(&a);
 		ft_lstadd_back(&a, node);
 		i++;
 	}
+	return(a);
+}
+
+
+
+
+
+int	main(int argc, char **argv)
+{
+	t_node	*a;
+	t_node	*node;
+
+	a = build_stack(argc, argv);
 	ft_printf("pile a :");
 	node = a;
 	while (node)
