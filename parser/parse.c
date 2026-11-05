@@ -6,7 +6,7 @@
 /*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 21:24:43 by lfedal            #+#    #+#             */
-/*   Updated: 2026/11/05 00:44:39 by lfedal           ###   ########.fr       */
+/*   Updated: 2026/11/05 11:20:21 by lfedal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,67 @@ int	str_to_int(char *s, int *out)
 	return(1);
 }
 
+
+int	is_double(t_node *a, int value)
+{
+if (a == NULL)
+{
+	return(0);
+}
+
+while (a != NULL)
+{
+	if (a->value == value)
+		return(1);
+	a = a->next;
+}
+return(0);
+}
+
+
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	value;
+	t_node	*a;
+	t_node	*node;
+	int		value;
+	int		i;
 
+	a = NULL;
 	i = 1;
 	while (i < argc)
 	{
 		if (!is_valid_number(argv[i]))
+		{
 			ft_printf("[%s] invalide (format)\n", argv[i]);
-		else if (!str_to_int(argv[i], &value))
+			free_stack(&a);
+			return (1);
+		}
+		if (!str_to_int(argv[i], &value))
+		{
 			ft_printf("[%s] invalide (depassement)\n", argv[i]);
-		else
-			ft_printf("[%s] valide -> %d\n", argv[i], value);
+			free_stack(&a);
+			return (1);
+		}
+		if (is_double(a, value))
+		{
+			ft_printf("[%s] invalide (doublon)\n", argv[i]);
+			free_stack(&a);
+			return (1);
+		}
+		node = ft_lstnew(value, i, &a);
+		if (!node)
+			return (1);
+		ft_lstadd_back(&a, node);
 		i++;
 	}
+	ft_printf("pile a :");
+	node = a;
+	while (node)
+	{
+		ft_printf(" %d", node->value);
+		node = node->next;
+	}
+	ft_printf("\n");
+	free_stack(&a);
 	return (0);
 }
