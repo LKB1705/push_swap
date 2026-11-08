@@ -6,7 +6,7 @@
 /*   By: oracio <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 14:20:04 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/04 12:57:37 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/05 14:31:30 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,6 @@ t_node	*create_stack_a(int argc, char **argv)
 // 			//methode high O(n log n)
 // }
 
-int	main(int argc, char **argv)
-{
-	t_node	*stack_a;
-	//t_node	*stack_b;
-	t_node	*tmp;
 
-	//stack_b = NULL;
-	stack_a = create_stack_a(argc, argv);
-	if (!stack_a)
-		return (0);
-	tmp = stack_a;
-	while (tmp)
-	{
-		printf("value: %d, index: %d\n", tmp->value, tmp->index);
-		tmp = tmp->next;
-	}
-	free_stack(&stack_a);
-	return (0);
-}
 
 /*A voir pour ajouter la creation de la stack_b*/

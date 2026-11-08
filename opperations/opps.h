@@ -13,6 +13,7 @@
 #ifndef OPPS_H
 # define OPPS_H
 
+# include <stdbool.h>
 # include "ft_printf.h"
 
 typedef struct s_node
@@ -20,8 +21,8 @@ typedef struct s_node
 	int				value;
 	int				index;
 	int				cost;
-	int				abv_med;
-	int				chpst;
+	bool			abv_med;
+	bool			chpst;
 	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*prev;
