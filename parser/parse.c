@@ -6,7 +6,7 @@
 /*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 21:24:43 by lfedal            #+#    #+#             */
-/*   Updated: 2026/11/05 12:30:07 by lfedal           ###   ########.fr       */
+/*   Updated: 2026/11/08 17:16:14 by lfedal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	error_exit(t_node **a)
 }
 
 
-t_node *build_stack(int argc, char **argv)
+t_node *build_stack(int argc, char **argv, t_opts *opts)
 {
 		t_node	*a;
 	t_node	*node;
@@ -100,7 +100,17 @@ t_node *build_stack(int argc, char **argv)
 	a = NULL;
 	i = 1;
 	while (argc > i)
-	{
+	{	
+		if (is_flag(argv[i]))
+		{
+			if (parse_flag(argv[i], opts) == 0)
+			{
+				error_exit(&a);
+			}
+			i++;
+			continue;
+		}
+		
 		if (!is_valid_number(argv[i]))
 			error_exit(&a);
 		if (!str_to_int(argv[i], &value))
@@ -114,9 +124,10 @@ t_node *build_stack(int argc, char **argv)
 		ft_lstadd_back(&a, node);
 		i++;
 	}
-	return(a);
+	if (opts->strategy == STRAT_NONE)
+		opts->strategy = STRAT_ADAPTIVE;
+	return (a);
 }
-
 
 
 
@@ -125,9 +136,12 @@ int	main(int argc, char **argv)
 {
 	t_node	*a;
 	t_node	*node;
+	t_opts	opts;
 
-	a = build_stack(argc, argv);
-	ft_printf("pile a :");
+	opts.strategy = STRAT_NONE;
+	opts.bench = 0;
+	a = build_stack(argc, argv, &opts);
+	ft_printf("strat=%d bench=%d | pile a :", opts.strategy, opts.bench);
 	node = a;
 	while (node)
 	{
