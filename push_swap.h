@@ -6,7 +6,7 @@
 /*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 10:37:01 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/05 00:39:18 by lfedal           ###   ########.fr       */
+/*   Updated: 2026/11/08 16:35:07 by lfedal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,19 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
+
+
+# define STRAT_NONE		0
+# define STRAT_SIMPLE	1
+# define STRAT_MEDIUM	2
+# define STRAT_COMPLEX	3
+# define STRAT_ADAPTIVE	4
+
+typedef struct s_opts
+{
+	int	strategy;
+	int	bench;
+}	t_opts;
 
 /* push_swap.c */
 t_node	*create_stack_a(int argc, char **argv);
@@ -66,5 +79,15 @@ void	rr(t_node **a, t_node **b);
 void	rra(t_node **a);
 void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
+/* parser/parse.c */
+int		is_valid_number(char *s);
+int		str_to_int(char *s, int *out);
+int		is_double(t_node *a, int value);
+void	error_exit(t_node **a);
+t_node	*build_stack(int argc, char **argv);
+/* parser/parse_flag.c */
+int		ft_strcmp(char *s1, char *s2);
+int		is_flag(char *s);
+int		parse_flag(char *s, t_opts *opts);
 
 #endif
