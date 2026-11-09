@@ -19,17 +19,7 @@
 # include <limits.h>
 # include "ft_printf/ft_printf.h"
 
-typedef struct s_node
-{
-	int				value;
-	int				index;
-	int				cost;
-	int				abv_med;
-	int				chpst;
-	struct s_node	*target;
-	struct s_node	*next;
-	struct s_node	*prev;
-}	t_node;
+int		main(int argc, char **argv);
 
 
 # define STRAT_NONE		0
@@ -89,5 +79,7 @@ t_node	*build_stack(int argc, char **argv);
 int		ft_strcmp(char *s1, char *s2);
 int		is_flag(char *s);
 int		parse_flag(char *s, t_opts *opts);
+t_node	*value_to_rank(t_node *a);
+t_node	*find_min(t_node *stack);
 
 #endif
