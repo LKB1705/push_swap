@@ -14,7 +14,7 @@ NAME = utils.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = utils.c utils_1.c utils_2.c
+SRCS = utils.c utils_1.c utils_2.c utils_cost.c
 
 OBJS = $(SRCS:.c=.o)
 

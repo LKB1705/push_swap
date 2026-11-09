@@ -6,7 +6,7 @@
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 12:50:47 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/06 13:00:07 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/09 12:50:48 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,14 @@ t_node	*find_max(t_node *stack)
 	return (max);
 }
 
-t_node	*find_target_b(t_node *src, t_node *b)
+t_node	*find_target(t_node *src, t_node *b)
 {
 	t_node	*tmp;
 	t_node	*best;
 
 	best = NULL;
 	tmp = b;
+	set_index(b);
 	while (tmp)
 	{
 		if (tmp->value < src->value && (!best || tmp->value > best->value))
@@ -60,4 +61,11 @@ t_node	*find_target_b(t_node *src, t_node *b)
 	if (!best)
 		return (find_max(b));
 	return (best);
+}
+
+int min_int(int a, int b)
+{
+  if (a < b)
+    return (a);
+  return (b);
 }

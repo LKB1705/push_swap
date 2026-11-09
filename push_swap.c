@@ -6,7 +6,7 @@
 /*   By: oracio <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 14:20:04 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/05 14:31:30 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/09 12:48:11 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,5 @@ t_node	*create_stack_a(int argc, char **argv)
 // 		else if (disorder >= 0.5)
 // 			//methode high O(n log n)
 // }
-
-
 
 /*A voir pour ajouter la creation de la stack_b*/

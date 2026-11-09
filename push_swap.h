@@ -6,7 +6,7 @@
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 10:37:01 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/02 21:59:22 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/09 12:47:35 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 # include "algorithme.h"
 # include "utils.h"
 
-int	main(int argc, char **argv);
+int		main(int argc, char **argv);
+
 /* push_swap.c */
 t_node	*create_stack_a(int argc, char **argv);
 
