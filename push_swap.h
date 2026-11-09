@@ -6,7 +6,7 @@
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 10:37:01 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/02 21:59:22 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/09 12:47:35 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,54 +16,18 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <stdbool.h>
 # include "ft_printf.h"
+# include "opps.h"
+# include "algorithme.h"
+# include "utils.h"
 
-typedef struct s_node
-{
-	int				value;
-	int				index;
-	int				cost;
-	int				abv_med;
-	int				chpst;
-	struct s_node	*target;
-	struct s_node	*next;
-	struct s_node	*prev;
-}	t_node;
+int		main(int argc, char **argv);
 
 /* push_swap.c */
 t_node	*create_stack_a(int argc, char **argv);
 
-/* utils.c */
-int		ft_atoi(char *str);
-t_node	*ft_lstnew(int content, int i, t_node **stack_a);
-t_node	*ft_lstlast(t_node *lst);
-void	ft_lstadd_front(t_node **lst, t_node *new);
-void	ft_lstadd_back(t_node **lst, t_node *new);
-
-/* utils_bis.c */
-void	free_stack(t_node **stack);
-t_node	*ft_lstpop_front(t_node **lst);
-t_node	*ft_lstpop_back(t_node **lst);
-void	set_index(t_node *stack);
-int		stack_len(t_node *stack);
-
-/* opp_s.c */
-void	sa(t_node **a);
-void	sb(t_node **b);
-void	ss(t_node **a, t_node **b);
-
-/* opp_p.c */
-void	pa(t_node **a, t_node **b);
-void	pb(t_node **b, t_node **a);
-
-/* opp_r.c */
-void	ra(t_node **a);
-void	rb(t_node **b);
-void	rr(t_node **a, t_node **b);
-
-/* opp_rr.c */
-void	rra(t_node **a);
-void	rrb(t_node **b);
-void	rrr(t_node **a, t_node **b);
+t_node	*value_to_rank(t_node *a);
+t_node	*find_min(t_node *stack);
 
 #endif

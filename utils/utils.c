@@ -6,11 +6,11 @@
 /*   By: obohbot <marvin@42.fr>                        +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/11/02 11:24:32 by obohbot        #+#    #+#                */
-/*   Updated: 2026/11/02 18:59:15 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/09 12:50:26 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
 
 int	ft_atoi(char *str)
 {

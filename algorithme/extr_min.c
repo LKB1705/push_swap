@@ -1,42 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   opp_r.c                                            :+:      :+:    :+:   */
+/*   extr_min.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/02 11:35:44 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/02 19:02:44 by obohbot          ###   ########.fr       */
+/*   Created: 2026/11/05 14:22:26 by obohbot           #+#    #+#             */
+/*   Updated: 2026/11/05 14:29:58 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "algorithme.h"
 
-static void	rotate(t_node **stack)
+void	bring_min_to_top(t_node **a)
 {
-	t_node	*first;
+	t_node	*min;
+	int		n;
+	int		i;
 
-	if (!*stack || !(*stack)->next)
-		return ;
-	first = ft_lstpop_front(stack);
-	ft_lstadd_back(stack, first);
+	set_index(*a);
+	min = find_min(*a);
+	n = stack_len(*a);
+	i = min->index;
+	if (min->abv_med)
+	{
+		while (i > 0)
+		{
+			ra(a);
+			i--;
+		}
+	}
+	else
+	{
+		while (i < n)
+		{
+			rra(a);
+			i++;
+		}
+	}
 }
 
-void	ra(t_node **a)
+void	extr_min(t_node **a, t_node **b)
 {
-	rotate(a);
-	ft_printf("ra\n");
-}
-
-void	rb(t_node **b)
-{
-	rotate(b);
-	ft_printf("rb\n");
-}
-
-void	rr(t_node **a, t_node **b)
-{
-	rotate(a);
-	rotate(b);
-	ft_printf("rr\n");
+	while (*a)
+	{
+		bring_min_to_top(a);
+		pb(b, a);
+	}
+	while (*b)
+		pa(a, b);
 }
