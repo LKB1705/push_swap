@@ -6,7 +6,7 @@
 /*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 21:24:43 by lfedal            #+#    #+#             */
-/*   Updated: 2026/11/08 17:16:14 by lfedal           ###   ########.fr       */
+/*   Updated: 2026/11/09 11:36:33 by lfedal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,13 @@ if (s[0] == '-' || s[0] =='+')
 	}
 	return(1);
 }
+
 int	str_to_int(char *s, int *out)
 {	
-	long nbr;
-	int	i;
-	int neg;
+	long	nbr;
+	int		i;
+	int		neg;
+
 	nbr = 0;
 	neg = 1;
 	i = 0;
@@ -68,25 +70,25 @@ int	str_to_int(char *s, int *out)
 
 int	is_double(t_node *a, int value)
 {
-if (a == NULL)
-{
-	return(0);
-}
+	if (a == NULL)
+	{
+		return(0);
+	}
 
-while (a != NULL)
-{
-	if (a->value == value)
-		return(1);
-	a = a->next;
-}
-return(0);
+	while (a != NULL)
+	{
+		if (a->value == value)
+			return(1);
+		a = a->next;
+	}
+	return (0);
 }
 
 void	error_exit(t_node **a)
 {
-			free_stack(a);
-			write(2, "Error\n", 6);
-			exit (1);
+	free_stack(a);
+	write(2, "Error\n", 6);
+	exit (1);
 }
 
 
@@ -104,9 +106,7 @@ t_node *build_stack(int argc, char **argv, t_opts *opts)
 		if (is_flag(argv[i]))
 		{
 			if (parse_flag(argv[i], opts) == 0)
-			{
 				error_exit(&a);
-			}
 			i++;
 			continue;
 		}
