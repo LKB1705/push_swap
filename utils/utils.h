@@ -6,7 +6,7 @@
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 15:17:13 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/09 12:49:07 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/09 18:02:55 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef UTILS_H
@@ -33,7 +33,7 @@ t_node	*ft_lstpop_back(t_node **lst);
 t_node	*find_min(t_node *stack);
 t_node	*find_max(t_node *stack);
 t_node	*find_target_b(t_node *src, t_node *b);
-int min_int(int a, int b);
+int		min_int(int a, int b);
 void	sort_three(t_node **a);
 
 /* utils_cost.c */

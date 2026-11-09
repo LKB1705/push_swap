@@ -6,7 +6,7 @@
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 13:20:14 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/09 12:53:52 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/09 18:01:42 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ void	turk(t_node **a, t_node **b)
 	{
 		pb(b, a);
 		pb(b, a);
-    while (stack_len(*a) > 3)
-    {
-	    set_index(*a);
-	    set_index(*b);
-	    set_cost(*a, *b);
-	    make_move(a, b, find_cheapest(*a));
-    }
-  }
-  sort_three(a);
+		while (stack_len(*a) > 3)
+		{
+			set_index(*a);
+			set_index(*b);
+			set_cost(*a, *b);
+			make_move(a, b, find_cheapest(*a));
+		}
+	}
+	sort_three(a);
 }
 
 void	make_move(t_node **a, t_node **b, t_node *cheapest)
@@ -57,6 +57,7 @@ void	make_move(t_node **a, t_node **b, t_node *cheapest)
 	signed_rotation(a, b, a_cost, b_cost);
 	pb(b, a);
 }
+
 void	call_rotation(t_node **a, t_node **b, int sign, int common)
 {
 	while (common > 0)
@@ -68,6 +69,7 @@ void	call_rotation(t_node **a, t_node **b, int sign, int common)
 		common--;
 	}
 }
+
 void	signed_rotation(t_node **a, t_node **b, int a_cost, int b_cost)
 {
 	rotate_stack(a, a_cost, 'a');

@@ -6,7 +6,7 @@
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 12:50:47 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/09 12:50:48 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/09 18:03:54 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ t_node	*find_target(t_node *src, t_node *b)
 	return (best);
 }
 
-int min_int(int a, int b)
+int	min_int(int a, int b)
 {
-  if (a < b)
-    return (a);
-  return (b);
+	if (a < b)
+		return (a);
+	return (b);
 }
 
 void	sort_three(t_node **a)
