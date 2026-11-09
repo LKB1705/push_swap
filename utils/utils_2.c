@@ -69,3 +69,30 @@ int min_int(int a, int b)
     return (a);
   return (b);
 }
+
+void	sort_three(t_node **a)
+{
+	int	x;
+	int	y;
+	int	z;
+
+	x = (*a)->value;
+	y = (*a)->next->value;
+	z = (*a)->next->next->value;
+	if (x > y && y < z && x < z)
+		sa(a);
+	else if (x > y && y > z)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if (x > y && y < z)
+		ra(a);
+	else if (x < y && y > z && x < z)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (x < y && y > z)
+		rra(a);
+}

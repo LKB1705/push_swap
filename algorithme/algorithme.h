@@ -22,5 +22,8 @@ void	bring_min_to_top(t_node **a);
 
 /* -- Algo Turk -- */
 void	turk(t_node **a, t_node **b);
-
+void	make_move(t_node **a, t_node **b, t_node *cheapest);
+void	call_rotation(t_node **a, t_node **b, int sign, int common);
+void	signed_rotation(t_node **a, t_node **b, int a_cost, int b_cost);
+void	rotate_stack(t_node **stack, int cost, char name);
 #endif

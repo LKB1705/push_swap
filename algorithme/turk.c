@@ -15,108 +15,81 @@
 void	turk(t_node **a, t_node **b)
 {
 	int		a_len;
-	t_node	*tmp;
 
 	a_len = stack_len(*a);
-	tmp = a;
 	if (a_len > 3)
 	{
 		pb(b, a);
 		pb(b, a);
     while (stack_len(*a) > 3)
     {
-		  while (tmp)
-		  {
-			  find_target(tmp, (*b));
-			  tmp = tmp->next;
-		  }
-      set_cost(*a, *b);
-      find_cheapest(*a);
-      make_move(&a, &b);
+	    set_index(*a);
+	    set_index(*b);
+	    set_cost(*a, *b);
+	    make_move(a, b, find_cheapest(*a));
     }
+  }
+  sort_three(a);
+}
+
+void	make_move(t_node **a, t_node **b, t_node *cheapest)
+{
+	int	a_cost;
+	int	b_cost;
+	int	common;
+
+	a_cost = find_cost(cheapest, stack_len(*a));
+	b_cost = find_cost(cheapest->target, stack_len(*b));
+	if (a_cost > 0 && b_cost > 0)
+	{
+		common = min_int(a_cost, b_cost);
+		call_rotation(a, b, 1, common);
+		a_cost -= common;
+		b_cost -= common;
+	}
+	else if (a_cost < 0 && b_cost < 0)
+	{
+		common = min_int(-a_cost, -b_cost);
+		call_rotation(a, b, -1, common);
+		a_cost += common;
+		b_cost += common;
+	}
+	signed_rotation(a, b, a_cost, b_cost);
+	pb(b, a);
+}
+void	call_rotation(t_node **a, t_node **b, int sign, int common)
+{
+	while (common > 0)
+	{
+		if (sign == -1)
+			rrr(a, b);
+		else
+			rr(a, b);
+		common--;
 	}
 }
-
-void  make_move(t_node **a, t_node **b)
+void	signed_rotation(t_node **a, t_node **b, int a_cost, int b_cost)
 {
-  int a_cost;
-  int b_cost;
-  int min;
-
-  a_cost = find_cost(*a, stack_len(*a));
-  b_cost = find_cost(*b, stack_len(*b));
-  min = min_int(abs_int(a_cost), abs_int(b_cost));
-  if (a_cost > 0 && b_cost > 0)
-    call_rotation(&a, &b, 1, min);
-  else if (a_cost < 0 && b_cost < 0)
-    call_rotation(&a, &b, -1, min);
-  else if ((a_cost < 0 && b_cost > 0) || (a_cost > 0 && b_cost < 0))
-    
+	rotate_stack(a, a_cost, 'a');
+	rotate_stack(b, b_cost, 'b');
 }
 
-void  call_rotation(t_node **a, t_node **b, int sign, int min)
+void	rotate_stack(t_node **stack, int cost, char name)
 {
-  if (sign == -1)
-  {
-    while (min > 0)
-    {
-      rrr(&a, &b);
-      min--;
-    }
-  }
-  else
-  {
-    while (min > 0)
-    {
-      rr(&a, &b);
-      min--;
-    }
-  }
-}
-
-void  signed_rotation(t_node **a, t_node **b, int a_cost, int b_cost)
-{
-  int rot;
-
-  //Rotation pour la stack_a
-  if (a_cost < 0)
-  {
-    rot = -a_cost;
-    while (rot > 0)
-    {
-      rra(&a);
-      rot--;
-    }
-  }
-  else if (a_cost > 0)
-  {
-    rot = a_cost;
-    while (rot > 0)
-    {
-      ra(&a, &b);
-      rot--,
-    }
-  }
-
-  //Rotation pour la stack_a
-  if (b_cost < 0)
-  {
-    rot = -b_cost;
-    while (rot > 0)
-    {
-      rrb(&b, &b);
-      rot--;
-    }
-  }
-  else if (a_cost > 0)
-  {
-    rot = a_cost;
-    while (rot > 0)
-    {
-      ra(&a, &b);
-      rot--,
-    }
-  }
-
-
+	while (cost > 0)
+	{
+		if (name == 'a')
+			ra(stack);
+		else
+			rb(stack);
+		cost--;
+	}
+	while (cost < 0)
+	{
+		if (name == 'a')
+			rra(stack);
+		else
+			rrb(stack);
+		cost++;
+	}
 }

@@ -33,6 +33,8 @@ t_node	*ft_lstpop_back(t_node **lst);
 t_node	*find_min(t_node *stack);
 t_node	*find_max(t_node *stack);
 t_node	*find_target_b(t_node *src, t_node *b);
+int min_int(int a, int b);
+void	sort_three(t_node **a);
 
 /* utils_cost.c */
 int		abs_int(int n);
