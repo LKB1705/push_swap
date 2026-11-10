@@ -6,7 +6,7 @@
 #    By: obohbot <obohbot@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/02 21:47:32 by obohbot           #+#    #+#              #
-#    Updated: 2026/11/04 16:18:04 by obohbot          ###   ########.fr        #
+#    Updated: 2026/11/10 14:41:33 by obohbot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,54 +14,47 @@ NAME		= push_swap
 
 CC		= cc
 CFLAGS		= -Wall -Wextra -Werror
+INC		= -I includes -I ft_printf
 
 PRINTF_DIR	= ft_printf
 PRINTF		= $(PRINTF_DIR)/libftprintf.a
+HEADERS		= includes/push_swap.h
 
-OPP_DIR = opperations
-OPP		= $(OPP_DIR)/opperation.a
-
-ALGO_DIR = algorithme
-ALGO = $(ALGO_DIR)/algorithme.a
-
-UTILS_DIR = utils
-UTILS = $(UTILS_DIR)/utils.a
-
-SRCS = push_swap.c norm_rank.c main.c
+SRCS = 		srcs/main.c \
+			srcs/algorithme/extr_min.c \
+			srcs/algorithme/turk.c \
+			srcs/opperations/opp_p.c \
+			srcs/opperations/opp_r.c \
+			srcs/opperations/opp_rr.c \
+			srcs/opperations/opp_s.c \
+			srcs/parser/parse.c \
+			srcs/parser/parse_flag.c \
+			srcs/utils/utils.c \
+			srcs/utils/utils_1.c \
+			srcs/utils/utils_2.c \
+			srcs/utils/utils_cost.c \
+			srcs/disorder.c \
+			srcs/norm_rank.c \
+			srcs/push_swap.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(PRINTF) $(OPP) $(UTILS) $(ALGO) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(ALGO) $(UTILS) $(OPP) $(PRINTF) -o $(NAME)
+$(NAME): $(PRINTF) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(PRINTF) -o $(NAME)
 $(PRINTF):
 	$(MAKE) -C $(PRINTF_DIR)
 
-$(OPP):
-	$(MAKE) -C $(OPP_DIR)
-
-$(UTILS):
-	$(MAKE) -C $(UTILS_DIR)
-
-$(ALGO):
-	$(MAKE) -C $(ALGO_DIR)
-
-%.o: %.c push_swap.h
-	$(CC) $(CFLAGS) -I $(PRINTF_DIR) -I $(OPP_DIR) -I $(UTILS_DIR) -I $(ALGO_DIR) -c $< -o $@
+%.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
 	$(MAKE) -C $(PRINTF_DIR) clean
-	$(MAKE) -C $(OPP_DIR) clean
-	$(MAKE) -C $(UTILS_DIR) clean
-	$(MAKE) -C $(ALGO_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
 	$(MAKE) -C $(PRINTF_DIR) fclean
-	$(MAKE) -C $(OPP_DIR) fclean
-	$(MAKE) -C $(UTILS_DIR) fclean
-	$(MAKE) -C $(ALGO_DIR) fclean
 
 re: fclean all
 

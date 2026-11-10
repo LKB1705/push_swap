@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   opp_r.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/29 10:37:01 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/09 12:47:35 by obohbot          ###   ########.fr       */
+/*   Created: 2026/11/02 11:35:44 by obohbot           #+#    #+#             */
+/*   Updated: 2026/11/02 19:02:44 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stddef.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <stdbool.h>
-# include "ft_printf.h"
-# include "opps.h"
-# include "algorithme.h"
-# include "utils.h"
+static void	rotate(t_node **stack)
+{
+	t_node	*first;
 
-int		main(int argc, char **argv);
+	if (!*stack || !(*stack)->next)
+		return ;
+	first = ft_lstpop_front(stack);
+	ft_lstadd_back(stack, first);
+}
 
-/* push_swap.c */
-t_node	*create_stack_a(int argc, char **argv);
+void	ra(t_node **a)
+{
+	rotate(a);
+	ft_printf("ra\n");
+}
 
-t_node	*value_to_rank(t_node *a);
-t_node	*find_min(t_node *stack);
+void	rb(t_node **b)
+{
+	rotate(b);
+	ft_printf("rb\n");
+}
 
-#endif
+void	rr(t_node **a, t_node **b)
+{
+	rotate(a);
+	rotate(b);
+	ft_printf("rr\n");
+}

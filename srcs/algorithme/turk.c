@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algorithme.h"
+#include "push_swap.h"
 
 void	turk(t_node **a, t_node **b)
 {

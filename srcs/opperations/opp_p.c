@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "opps.h"
+#include "push_swap.h"
 
 static void	push(t_node **dst, t_node **src)
 {

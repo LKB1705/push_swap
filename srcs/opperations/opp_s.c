@@ -1,52 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extr_min.c                                         :+:      :+:    :+:   */
+/*   opp_s.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/05 14:22:26 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/05 14:29:58 by obohbot          ###   ########.fr       */
+/*   Created: 2026/10/30 10:34:23 by obohbot           #+#    #+#             */
+/*   Updated: 2026/11/02 21:09:45 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algorithme.h"
+#include "push_swap.h"
 
-void	bring_min_to_top(t_node **a)
+static void	swap(t_node **stack)
 {
-	t_node	*min;
-	int		n;
-	int		i;
+	int	tmp;
 
-	set_index(*a);
-	min = find_min(*a);
-	n = stack_len(*a);
-	i = min->index;
-	if (min->abv_med)
-	{
-		while (i > 0)
-		{
-			ra(a);
-			i--;
-		}
-	}
-	else
-	{
-		while (i < n)
-		{
-			rra(a);
-			i++;
-		}
-	}
+	if (!*stack || !(*stack)->next)
+		return ;
+	tmp = (*stack)->value;
+	(*stack)->value = (*stack)->next->value;
+	(*stack)->next->value = tmp;
 }
 
-void	extr_min(t_node **a, t_node **b)
+void	sa(t_node **a)
 {
-	while (*a)
-	{
-		bring_min_to_top(a);
-		pb(b, a);
-	}
-	while (*b)
-		pa(a, b);
+	swap(a);
+	ft_printf("sa\n");
+}
+
+void	sb(t_node **b)
+{
+	swap(b);
+	ft_printf("sb\n");
+}
+
+void	ss(t_node **a, t_node **b)
+{
+	swap(a);
+	swap(b);
+	ft_printf("ss\n");
 }

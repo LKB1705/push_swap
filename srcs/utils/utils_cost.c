@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "push_swap.h"
 
 int	abs_int(int n)
 {
@@ -44,7 +44,7 @@ void	set_cost(t_node *a, t_node *b)
 	len_b = stack_len(b);
 	while (a)
 	{
-		a->target = find_target_b(a, b);
+		a->target = find_target(a, b);
 		cost_a = find_cost(a, len_a);
 		cost_b = find_cost(a->target, len_b);
 		if ((cost_a >= 0 && cost_b >= 0) || (cost_a <= 0 && cost_b <= 0))
