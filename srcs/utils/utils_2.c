@@ -44,10 +44,10 @@ t_node	*find_max(t_node *stack)
 	return (max);
 }
 
-t_node	*find_target(t_node *src, t_node *b)
+t_node	*find_target_b(t_node *src, t_node *b)
 {
 	t_node	*tmp;
-	t_node	*best;
+	t_node	*best; 
 
 	best = NULL;
 	tmp = b;

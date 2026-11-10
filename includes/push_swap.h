@@ -66,7 +66,7 @@ t_node	*ft_lstpop_back(t_node **lst);
 /* utils_2.c */
 t_node	*find_min(t_node *stack);
 t_node	*find_max(t_node *stack);
-t_node	*find_target(t_node *src, t_node *b);
+t_node	*find_target_b(t_node *src, t_node *b);
 int		min_int(int a, int b);
 void	sort_three(t_node **a);
 
@@ -129,5 +129,7 @@ void	make_move(t_node **a, t_node **b, t_node *cheapest);
 void	call_rotation(t_node **a, t_node **b, int sign, int common);
 void	signed_rotation(t_node **a, t_node **b, int a_cost, int b_cost);
 void	rotate_stack(t_node **stack, int cost, char name);
+void	back_to_a(t_node **a, t_node **b);
+t_node	*find_target_a(t_node *src, t_node *a);
 
 #endif

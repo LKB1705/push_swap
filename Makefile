@@ -23,6 +23,7 @@ HEADERS		= includes/push_swap.h
 SRCS = 		srcs/main.c \
 			srcs/algorithme/extr_min.c \
 			srcs/algorithme/turk.c \
+			srcs/algorithme/turk_bis.c \
 			srcs/opperations/opp_p.c \
 			srcs/opperations/opp_r.c \
 			srcs/opperations/opp_rr.c \

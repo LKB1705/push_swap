@@ -30,6 +30,7 @@ void	turk(t_node **a, t_node **b)
 		}
 	}
 	sort_three(a);
+	back_to_a(a, b);
 }
 
 void	make_move(t_node **a, t_node **b, t_node *cheapest)
