@@ -6,13 +6,40 @@
 /*   By: oracio <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 14:20:04 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/09 12:48:11 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/12 10:42:53 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*create_stack_a(int argc, char **argv)
+void	choose_methode(t_opts strat, t_node **a, t_node **b, t_stats *s)
+{
+	double	disorder;
+
+	disorder = comp_disorder(*a);
+	if (disorder == 0)
+		return ;
+	if (strat.strategy == STRAT_ADAPTIVE)
+	{
+		if (disorder < 0.2)
+			turk(a, b, s);
+		else if (disorder >= 0.2 && disorder < 0.5)
+			ft_printf("O(n1/2n)");
+		else if (disorder >= 0.5)
+			ft_printf("O(n log n)\n");
+	}
+	else
+	{
+		if (strat.strategy == STRAT_SIMPLE)
+			turk(a, b, s);
+		else if (strat.strategy == STRAT_MEDIUM)
+			ft_printf("O(n1/2n)");
+		else if (strat.strategy == STRAT_COMPLEX)
+			ft_printf("O(n log n)\n");
+	}
+}
+
+/*t_node	*create_stack_a(int argc, char **argv)
 {
 	int		i;
 	int		value;
@@ -33,26 +60,4 @@ t_node	*create_stack_a(int argc, char **argv)
 		i++;
 	}
 	return (stack_a);
-}
-
-// void	choose_methode(t_node *stack_a)
-// {
-// 	double	disorder;
-
-// 	if (argv == "--simple")
-// 		//methode simple O(n2)
-// 	else if (argv == "--medium")
-// 		//methode medium O(n1/2n)
-// 	else if (argv == "--complex")
-// 		//methode high O(n log n)
-// 	else if (argv == "--adaptive")
-// 		disorer = comp_disorder(stack_a);
-// 		if (disorder < 0.2)
-// 			//methode simple O(n2)
-// 		else if (disorder >= 0.2 && disorder < 0.5)
-// 			//methode medium O(n1/2n)
-// 		else if (disorder >= 0.5)
-// 			//methode high O(n log n)
-// }
-
-/*A voir pour ajouter la creation de la stack_b*/
+}*/

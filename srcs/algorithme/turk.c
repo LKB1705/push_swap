@@ -12,28 +12,29 @@
 
 #include "push_swap.h"
 
-void	turk(t_node **a, t_node **b)
+void	turk(t_node **a, t_node **b, t_stats *s)
 {
-	int		a_len;
-
-	a_len = stack_len(*a);
-	if (a_len > 3)
+	if (stack_len(*a) == 2)
 	{
-		pb(b, a);
-		pb(b, a);
-		while (stack_len(*a) > 3)
-		{
-			set_index(*a);
-			set_index(*b);
-			set_cost(*a, *b);
-			make_move(a, b, find_cheapest(*a));
-		}
+		sa(a, s);
+		return ;
 	}
-	sort_three(a);
-	back_to_a(a, b);
+	if (stack_len(*a) > 3)
+		pb(b, a, s);
+	if (stack_len(*a) > 3)
+		pb(b, a, s);
+	while (stack_len(*a) > 3)
+	{
+		set_index(*a);
+		set_index(*b);
+		set_cost(*a, *b);
+		make_move(a, b, find_cheapest(*a), s);
+	}
+	sort_three(a, s);
+	back_to_a(a, b, s);
 }
 
-void	make_move(t_node **a, t_node **b, t_node *cheapest)
+void	make_move(t_node **a, t_node **b, t_node *cheapest, t_stats *s)
 {
 	int	a_cost;
 	int	b_cost;
@@ -44,55 +45,52 @@ void	make_move(t_node **a, t_node **b, t_node *cheapest)
 	if (a_cost > 0 && b_cost > 0)
 	{
 		common = min_int(a_cost, b_cost);
-		call_rotation(a, b, 1, common);
+		call_rotation(a, b, common, s);
 		a_cost -= common;
 		b_cost -= common;
 	}
 	else if (a_cost < 0 && b_cost < 0)
 	{
 		common = min_int(-a_cost, -b_cost);
-		call_rotation(a, b, -1, common);
+		call_rotation(a, b, -common, s);
 		a_cost += common;
 		b_cost += common;
 	}
-	signed_rotation(a, b, a_cost, b_cost);
-	pb(b, a);
+	rotate_stack(a, a_cost, 'a', s);
+	rotate_stack(b, b_cost, 'b', s);
+	pb(b, a, s);
 }
 
-void	call_rotation(t_node **a, t_node **b, int sign, int common)
+void	call_rotation(t_node **a, t_node **b, int common, t_stats *s)
 {
 	while (common > 0)
 	{
-		if (sign == -1)
-			rrr(a, b);
-		else
-			rr(a, b);
+		rr(a, b, s);
 		common--;
+	}
+	while (common < 0)
+	{
+		rrr(a, b, s);
+		common++;
 	}
 }
 
-void	signed_rotation(t_node **a, t_node **b, int a_cost, int b_cost)
-{
-	rotate_stack(a, a_cost, 'a');
-	rotate_stack(b, b_cost, 'b');
-}
-
-void	rotate_stack(t_node **stack, int cost, char name)
+void	rotate_stack(t_node **stack, int cost, char name, t_stats *s)
 {
 	while (cost > 0)
 	{
 		if (name == 'a')
-			ra(stack);
+			ra(stack, s);
 		else
-			rb(stack);
+			rb(stack, s);
 		cost--;
 	}
 	while (cost < 0)
 	{
 		if (name == 'a')
-			rra(stack);
+			rra(stack, s);
 		else
-			rrb(stack);
+			rrb(stack, s);
 		cost++;
 	}
 }

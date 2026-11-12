@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	back_to_a(t_node **a, t_node **b)
+void	back_to_a(t_node **a, t_node **b, t_stats *s)
 {
 	t_node	*max;
 	int		cost;
@@ -22,17 +22,17 @@ void	back_to_a(t_node **a, t_node **b)
 	set_index(*b);
 	max = find_max(*b);
 	cost = find_cost(max, stack_len(*b));
-	rotate_stack(b, cost, 'b');
+	rotate_stack(b, cost, 'b', s);
 	while (*b)
 	{
 		set_index(*a);
 		(*b)->target = find_target_a(*b, *a);
 		cost = find_cost((*b)->target, stack_len(*a));
-		rotate_stack(a, cost, 'a');
-		pa(a, b);
+		rotate_stack(a, cost, 'a', s);
+		pa(a, b, s);
 	}
 	set_index(*a);
-	rotate_stack(a, find_cost(find_min(*a), stack_len(*a)), 'a');
+	rotate_stack(a, find_cost(find_min(*a), stack_len(*a)), 'a', s);
 }
 
 t_node	*find_target_a(t_node *src, t_node *a)

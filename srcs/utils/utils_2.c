@@ -47,7 +47,7 @@ t_node	*find_max(t_node *stack)
 t_node	*find_target_b(t_node *src, t_node *b)
 {
 	t_node	*tmp;
-	t_node	*best; 
+	t_node	*best;
 
 	best = NULL;
 	tmp = b;
@@ -70,29 +70,29 @@ int	min_int(int a, int b)
 	return (b);
 }
 
-void	sort_three(t_node **a)
+void	sort_three(t_node **a, t_stats *s)
 {
 	int	x;
 	int	y;
 	int	z;
-
+ 
 	x = (*a)->value;
 	y = (*a)->next->value;
 	z = (*a)->next->next->value;
 	if (x > y && y < z && x < z)
-		sa(a);
+		sa(a, s);
 	else if (x > y && y > z)
 	{
-		sa(a);
-		rra(a);
+		sa(a, s);
+		rra(a, s);
 	}
 	else if (x > y && y < z)
-		ra(a);
+		ra(a, s);
 	else if (x < y && y > z && x < z)
 	{
-		sa(a);
-		ra(a);
+		sa(a, s);
+		ra(a, s);
 	}
 	else if (x < y && y > z)
-		rra(a);
+		rra(a, s);
 }

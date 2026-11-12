@@ -15,29 +15,32 @@
 static void	swap(t_node **stack)
 {
 	int	tmp;
-
+ 
 	if (!*stack || !(*stack)->next)
 		return ;
 	tmp = (*stack)->value;
 	(*stack)->value = (*stack)->next->value;
 	(*stack)->next->value = tmp;
 }
-
-void	sa(t_node **a)
+ 
+void	sa(t_node **a, t_stats *s)
 {
 	swap(a);
 	ft_printf("sa\n");
+	s->ops[OP_SA]++;
 }
-
-void	sb(t_node **b)
+ 
+void	sb(t_node **b, t_stats *s)
 {
 	swap(b);
 	ft_printf("sb\n");
+	s->ops[OP_SB]++;
 }
-
-void	ss(t_node **a, t_node **b)
+ 
+void	ss(t_node **a, t_node **b, t_stats *s)
 {
 	swap(a);
 	swap(b);
 	ft_printf("ss\n");
+	s->ops[OP_SS]++;
 }

@@ -50,8 +50,8 @@ int	parse_flag(char *s, t_opts *opts)
 		strat = STRAT_ADAPTIVE;
 	else
 		return (0);
-	if (opts->strategy != STRAT_NONE)
-		return (0);
+	//if (opts->strategy != STRAT_NONE)
+	//	return (0);
 	opts->strategy = strat;
 	return (1);
 }

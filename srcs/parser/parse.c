@@ -80,7 +80,7 @@ void	error_exit(t_node **a)
 	exit(1);
 }
 
-t_node	*build_stack(int argc, char **argv, t_opts *opts)
+/*t_node	*build_stack(int argc, char **argv, t_opts *opts)
 {
 	t_node	*a;
 	t_node	*node;
@@ -115,4 +115,4 @@ t_node	*build_stack(int argc, char **argv, t_opts *opts)
 	return (a);
  }
 
-/* implementer ft_split dans les checks pour les args ""*/
+	implementer ft_split dans les checks pour les args ""*/

@@ -21,7 +21,6 @@ PRINTF		= $(PRINTF_DIR)/libftprintf.a
 HEADERS		= includes/push_swap.h
 
 SRCS = 		srcs/main.c \
-			srcs/algorithme/extr_min.c \
 			srcs/algorithme/turk.c \
 			srcs/algorithme/turk_bis.c \
 			srcs/opperations/opp_p.c \
@@ -30,13 +29,15 @@ SRCS = 		srcs/main.c \
 			srcs/opperations/opp_s.c \
 			srcs/parser/parse.c \
 			srcs/parser/parse_flag.c \
+			srcs/parser/parse_args.c \
+			srcs/parser/benchmark.c \
+			srcs/parser/bench_utils.c \
 			srcs/utils/utils.c \
 			srcs/utils/utils_1.c \
 			srcs/utils/utils_2.c \
 			srcs/utils/utils_3.c \
 			srcs/utils/utils_cost.c \
 			srcs/disorder.c \
-			srcs/norm_rank.c \
 			srcs/push_swap.c
 OBJS = $(SRCS:.c=.o)
 
