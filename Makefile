@@ -33,6 +33,7 @@ SRCS = 		srcs/main.c \
 			srcs/utils/utils.c \
 			srcs/utils/utils_1.c \
 			srcs/utils/utils_2.c \
+			srcs/utils/utils_3.c \
 			srcs/utils/utils_cost.c \
 			srcs/disorder.c \
 			srcs/norm_rank.c \

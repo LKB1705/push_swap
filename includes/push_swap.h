@@ -70,6 +70,12 @@ t_node	*find_target_b(t_node *src, t_node *b);
 int		min_int(int a, int b);
 void	sort_three(t_node **a);
 
+/* utils_3.c */
+static int      count_words(const char *s, char delim);
+static char     *alloc_words(const char *str, char delim);
+static void     free_all(char **result, int i);
+char    **ft_split(const char *s, char c);
+
 /* utils_cost.c */
 int		abs_int(int n);
 int		max_int(int a, int b);

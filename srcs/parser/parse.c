@@ -113,4 +113,6 @@ t_node	*build_stack(int argc, char **argv, t_opts *opts)
 	if (opts->strategy == STRAT_NONE)
 		opts->strategy = STRAT_ADAPTIVE;
 	return (a);
-}
+ }
+
+/* implementer ft_split dans les checks pour les args ""*/
