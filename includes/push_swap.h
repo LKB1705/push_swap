@@ -47,8 +47,18 @@ typedef struct s_opts
 
 enum e_op
 {
-	OP_SA, OP_SB, OP_SS, OP_PA, OP_PB, OP_RA,
-	OP_RB, OP_RR, OP_RRA, OP_RRB, OP_RRR, OP_COUNT
+	OP_SA,
+	OP_SB,
+	OP_SS,
+	OP_PA,
+	OP_PB,
+	OP_RA,
+	OP_RB,
+	OP_RR,
+	OP_RRA,
+	OP_RRB,
+	OP_RRR,
+	OP_COUNT
 };
 
 typedef struct s_stats
@@ -83,7 +93,6 @@ int		min_int(int a, int b);
 void	sort_three(t_node **a, t_stats *s);
 
 /* utils_3.c */
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 char	**ft_split(const char *s, char c);
 t_node	*value_to_rank(t_node *a);
 
@@ -153,5 +162,6 @@ void	bench(t_opts o, double d, t_stats *s);
 void	init_stats(t_stats *s);
 void	ft_putstr_fd(char *str, int fd);
 void	ft_putnbr_fd(int n, int fd);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 
 #endif

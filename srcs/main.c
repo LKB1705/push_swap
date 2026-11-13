@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
- 
+
 int	main(int argc, char **argv)
 {
 	t_node	*a;
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	t_opts	opts;
 	t_stats	s;
 	double	disorder;
- 
+
 	opts.strategy = STRAT_NONE;
 	opts.bench = 0;
 	init_stats(&s);

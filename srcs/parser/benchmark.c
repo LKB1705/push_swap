@@ -27,11 +27,11 @@ static char	*strat_label(t_opts o, double d)
 		return ("Adaptive / O(n\xe2\x88\x9a" "n)");
 	return ("Adaptive / O(n log n)");
 }
- 
+
 static void	put_percent(double d)
 {
 	int	v;
- 
+
 	v = (int)(d * 10000 + 0.5);
 	ft_putnbr_fd(v / 100, 2);
 	ft_putstr_fd(".", 2);
@@ -40,12 +40,12 @@ static void	put_percent(double d)
 	ft_putnbr_fd(v % 100, 2);
 	ft_putstr_fd("%", 2);
 }
- 
+
 static void	put_counts(t_stats *s, int from, int to)
 {
 	static char	*names[] = {"sa", "sb", "ss", "pa", "pb", "ra",
 		"rb", "rr", "rra", "rrb", "rrr"};
- 
+
 	while (from < to)
 	{
 		ft_putstr_fd(names[from], 2);
@@ -55,12 +55,12 @@ static void	put_counts(t_stats *s, int from, int to)
 			ft_putstr_fd(" ", 2);
 	}
 }
- 
+
 void	bench(t_opts o, double d, t_stats *s)
 {
 	int	i;
 	int	total;
- 
+
 	i = 0;
 	total = 0;
 	while (i < OP_COUNT)

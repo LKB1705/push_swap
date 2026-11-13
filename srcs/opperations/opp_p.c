@@ -15,20 +15,20 @@
 static void	push(t_node **dst, t_node **src)
 {
 	t_node	*node;
- 
+
 	if (!*src)
 		return ;
 	node = ft_lstpop_front(src);
 	ft_lstadd_front(dst, node);
 }
- 
+
 void	pa(t_node **a, t_node **b, t_stats *s)
 {
 	push(a, b);
 	ft_printf("pa\n");
 	s->ops[OP_PA]++;
 }
- 
+
 void	pb(t_node **b, t_node **a, t_stats *s)
 {
 	push(b, a);

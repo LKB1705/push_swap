@@ -75,7 +75,7 @@ void	sort_three(t_node **a, t_stats *s)
 	int	x;
 	int	y;
 	int	z;
- 
+
 	x = (*a)->value;
 	y = (*a)->next->value;
 	z = (*a)->next->next->value;
