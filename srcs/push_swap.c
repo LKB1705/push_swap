@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oracio <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 14:20:04 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/12 10:42:53 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/15 20:16:32 by lfedal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ void	choose_methode(t_opts strat, t_node **a, t_node **b, t_stats *s)
 		if (disorder < 0.2)
 			turk(a, b, s);
 		else if (disorder >= 0.2 && disorder < 0.5)
-			ft_printf("O(n1/2n)");
+			radix(a, b, s);
 		else if (disorder >= 0.5)
-			ft_printf("O(n log n)\n");
+			radix(a, b, s);
 	}
 	else
 	{
 		if (strat.strategy == STRAT_SIMPLE)
 			turk(a, b, s);
 		else if (strat.strategy == STRAT_MEDIUM)
-			ft_printf("O(n1/2n)");
+			radix(a, b, s);
 		else if (strat.strategy == STRAT_COMPLEX)
-			ft_printf("O(n log n)\n");
+			radix(a, b, s);
 	}
 }
 

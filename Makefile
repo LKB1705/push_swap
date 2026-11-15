@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: obohbot <obohbot@student.42lausanne.ch>    +#+  +:+       +#+         #
+#    By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/02 21:47:32 by obohbot           #+#    #+#              #
-#    Updated: 2026/11/10 14:41:33 by obohbot          ###   ########.fr        #
+#    Updated: 2026/11/15 20:14:17 by lfedal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ HEADERS		= includes/push_swap.h
 SRCS = 		srcs/main.c \
 			srcs/algorithme/turk.c \
 			srcs/algorithme/turk_bis.c \
+			srcs/algorithme/radix.c \
 			srcs/opperations/opp_p.c \
 			srcs/opperations/opp_r.c \
 			srcs/opperations/opp_rr.c \
