@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 10:37:01 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/09 12:47:35 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/15 20:08:27 by lfedal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,9 @@ void	call_rotation(t_node **a, t_node **b, int common, t_stats *s);
 void	rotate_stack(t_node **stack, int cost, char name, t_stats *s);
 void	back_to_a(t_node **a, t_node **b, t_stats *s);
 t_node	*find_target_a(t_node *src, t_node *a);
+
+/* -- Algo Radix -- */
+void	radix(t_node **a, t_node **b, t_stats *s);
 
 /* benchmark.c */
 void	bench(t_opts o, double d, t_stats *s);
