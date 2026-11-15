@@ -6,7 +6,7 @@
 #    By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/02 21:47:32 by obohbot           #+#    #+#              #
-#    Updated: 2026/11/15 22:18:18 by lfedal           ###   ########.fr        #
+#    Updated: 2026/11/15 22:58:30 by lfedal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ PRINTF		= $(PRINTF_DIR)/libftprintf.a
 HEADERS		= includes/push_swap.h
 
 SRCS = 		srcs/main.c \
+			srcs/algorithme/mini_push.c \
 			srcs/algorithme/turk.c \
 			srcs/algorithme/turk_bis.c \
 			srcs/algorithme/chunk.c \

@@ -6,7 +6,7 @@
 /*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 10:37:01 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/15 22:16:40 by lfedal           ###   ########.fr       */
+/*   Updated: 2026/11/15 23:02:57 by lfedal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,9 @@ t_node	*build_stack(int argc, char **argv, t_opts *opts);
 
 /* disorder.c */
 double	comp_disorder(t_node *stack_a);
+
+/* -- Petites piles -- */
+void	sort_small(t_node **a, t_node **b, t_stats *s);
 
 /* -- Algo Turk -- */
 void	turk(t_node **a, t_node **b, t_stats *s);
