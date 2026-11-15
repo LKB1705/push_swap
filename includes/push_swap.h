@@ -6,7 +6,7 @@
 /*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 10:37:01 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/15 20:08:27 by lfedal           ###   ########.fr       */
+/*   Updated: 2026/11/15 22:16:40 by lfedal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,9 @@ t_node	*find_target_a(t_node *src, t_node *a);
 
 /* -- Algo Radix -- */
 void	radix(t_node **a, t_node **b, t_stats *s);
+
+/* -- Algo Chunk -- */
+void	chunk_sort(t_node **a, t_node **b, t_stats *s);
 
 /* benchmark.c */
 void	bench(t_opts o, double d, t_stats *s);

@@ -6,7 +6,7 @@
 /*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 14:20:04 by oracio            #+#    #+#             */
-/*   Updated: 2026/11/15 20:16:32 by lfedal           ###   ########.fr       */
+/*   Updated: 2026/11/15 22:18:59 by lfedal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	choose_methode(t_opts strat, t_node **a, t_node **b, t_stats *s)
 		if (disorder < 0.2)
 			turk(a, b, s);
 		else if (disorder >= 0.2 && disorder < 0.5)
-			radix(a, b, s);
+			chunk_sort(a, b, s);
 		else if (disorder >= 0.5)
 			radix(a, b, s);
 	}
@@ -33,7 +33,7 @@ void	choose_methode(t_opts strat, t_node **a, t_node **b, t_stats *s)
 		if (strat.strategy == STRAT_SIMPLE)
 			turk(a, b, s);
 		else if (strat.strategy == STRAT_MEDIUM)
-			radix(a, b, s);
+			chunk_sort(a, b, s);
 		else if (strat.strategy == STRAT_COMPLEX)
 			radix(a, b, s);
 	}
