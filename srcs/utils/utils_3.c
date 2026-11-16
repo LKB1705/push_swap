@@ -6,7 +6,7 @@
 /*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 19:53:27 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/15 22:12:43 by lfedal           ###   ########.fr       */
+/*   Updated: 2026/11/16 12:14:52 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ t_node	*value_to_rank(t_node *a)
 				r++;
 			j = j->next;
 		}
-	i->index = r;
+		i->index = r;
 		i = i->next;
 	}
 	i = a;
@@ -113,4 +113,4 @@ t_node	*value_to_rank(t_node *a)
 		i = i->next;
 	}
 	return (a);
-}     
+}

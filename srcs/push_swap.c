@@ -20,7 +20,7 @@ void	choose_methode(t_opts strat, t_node **a, t_node **b, t_stats *s)
 	if (disorder == 0)
 		return ;
 	if (strat.strategy == STRAT_ADAPTIVE)
-	{	
+	{
 		if (stack_len(*a) <= 5)
 			sort_small(a, b, s);
 		else if (disorder < 0.2)
