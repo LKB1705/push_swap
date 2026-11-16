@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   opp_rr.c                                           :+:      :+:    :+:   */
+/*   opp_s.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/02 11:36:14 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/02 21:04:00 by obohbot          ###   ########.fr       */
+/*   Created: 2026/10/30 10:34:23 by obohbot           #+#    #+#             */
+/*   Updated: 2026/11/02 21:09:45 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "opps.h"
+#include "push_swap.h"
 
-static void	reverse_rotate(t_node **stack)
+static void	swap(t_node **stack)
 {
-	t_node	*last;
+	int	tmp;
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	last = ft_lstpop_back(stack);
-	ft_lstadd_front(stack, last);
+	tmp = (*stack)->value;
+	(*stack)->value = (*stack)->next->value;
+	(*stack)->next->value = tmp;
 }
 
-void	rra(t_node **a)
+void	sa(t_node **a, t_stats *s)
 {
-	reverse_rotate(a);
-	ft_printf("rra\n");
+	swap(a);
+	ft_printf("sa\n");
+	s->ops[OP_SA]++;
 }
 
-void	rrb(t_node **b)
+void	sb(t_node **b, t_stats *s)
 {
-	reverse_rotate(b);
-	ft_printf("rrb\n");
+	swap(b);
+	ft_printf("sb\n");
+	s->ops[OP_SB]++;
 }
 
-void	rrr(t_node **a, t_node **b)
+void	ss(t_node **a, t_node **b, t_stats *s)
 {
-	reverse_rotate(a);
-	reverse_rotate(b);
-	ft_printf("rrr\n");
+	swap(a);
+	swap(b);
+	ft_printf("ss\n");
+	s->ops[OP_SS]++;
 }

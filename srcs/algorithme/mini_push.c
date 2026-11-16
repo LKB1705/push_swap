@@ -1,52 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extr_min.c                                         :+:      :+:    :+:   */
+/*   mini_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lfedal <lfedal@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/05 14:22:26 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/05 14:29:58 by obohbot          ###   ########.fr       */
+/*   Created: 2026/11/14 18:35:43 by lfedal            #+#    #+#             */
+/*   Updated: 2026/11/16 12:11:14 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algorithme.h"
+#include "push_swap.h"
 
-void	bring_min_to_top(t_node **a)
+static void	push_min(t_node **a, t_node **b, t_stats *s)
 {
 	t_node	*min;
-	int		n;
-	int		i;
 
 	set_index(*a);
 	min = find_min(*a);
-	n = stack_len(*a);
-	i = min->index;
 	if (min->abv_med)
 	{
-		while (i > 0)
-		{
-			ra(a);
-			i--;
-		}
+		while (*a != min)
+			ra(a, s);
 	}
 	else
 	{
-		while (i < n)
-		{
-			rra(a);
-			i++;
-		}
+		while (*a != min)
+			rra(a, s);
 	}
+	pb(b, a, s);
 }
 
-void	extr_min(t_node **a, t_node **b)
+void	sort_small(t_node **a, t_node **b, t_stats *s)
 {
-	while (*a)
+	if (stack_len(*a) == 2)
 	{
-		bring_min_to_top(a);
-		pb(b, a);
+		sa(a, s);
+		return ;
 	}
+	while (stack_len(*a) > 3)
+		push_min(a, b, s);
+	sort_three(a, s);
 	while (*b)
-		pa(a, b);
+		pa(a, b, s);
 }

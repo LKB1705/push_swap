@@ -14,23 +14,45 @@
 
 int	main(int argc, char **argv)
 {
-	t_node	*stack_a;
-	t_node	*stack_b;
-	t_node	*tmp;
+	t_node	*a;
+	t_node	*b;
+	t_opts	opts;
+	t_stats	s;
+	double	disorder;
 
-	stack_b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	stack_a = value_to_rank(create_stack_a(argc, argv));
-	extr_min(&stack_a, &stack_b);
-	if (!stack_a)
-		return (0);
-	tmp = stack_a;
-	while (tmp)
-	{
-		printf("value: %d, index: %d\n", tmp->value, tmp->index);
-		tmp = tmp->next;
-	}
-	free_stack(&stack_a);
+	opts.strategy = STRAT_NONE;
+	opts.bench = 0;
+	init_stats(&s);
+	a = build_stack(argc, argv, &opts);
+	b = NULL;
+	disorder = comp_disorder(a);
+	choose_methode(opts, &a, &b, &s);
+	if (opts.bench)
+		bench(opts, disorder, &s);
+	free_stack(&a);
 	return (0);
 }
+
+/*int	main(int argc, char **argv)
+{
+	t_node	*a;
+	t_node	*b;
+	t_node	*node;
+	t_opts	opts;
+
+	opts.strategy = STRAT_NONE;
+	opts.bench = 0;
+	a = build_stack(argc, argv, &opts);
+	b = NULL;
+	ft_printf("strat=%d bench=%d | pile a :", opts.strategy, opts.bench);
+	node = a;
+	while (node)
+	{
+		ft_printf(" %d", node->value);
+		node = node->next;
+	}
+	ft_printf("\n");
+	choose_methode(opts, &a, &b);
+	free_stack(&a);
+	return (0);
+}*/

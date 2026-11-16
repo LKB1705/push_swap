@@ -6,11 +6,11 @@
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 12:50:47 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/09 12:50:48 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/09 18:03:54 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "push_swap.h"
 
 t_node	*find_min(t_node *stack)
 {
@@ -44,7 +44,7 @@ t_node	*find_max(t_node *stack)
 	return (max);
 }
 
-t_node	*find_target(t_node *src, t_node *b)
+t_node	*find_target_b(t_node *src, t_node *b)
 {
 	t_node	*tmp;
 	t_node	*best;
@@ -63,9 +63,36 @@ t_node	*find_target(t_node *src, t_node *b)
 	return (best);
 }
 
-int min_int(int a, int b)
+int	min_int(int a, int b)
 {
-  if (a < b)
-    return (a);
-  return (b);
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+void	sort_three(t_node **a, t_stats *s)
+{
+	int	x;
+	int	y;
+	int	z;
+
+	x = (*a)->value;
+	y = (*a)->next->value;
+	z = (*a)->next->next->value;
+	if (x > y && y < z && x < z)
+		sa(a, s);
+	else if (x > y && y > z)
+	{
+		sa(a, s);
+		rra(a, s);
+	}
+	else if (x > y && y < z)
+		ra(a, s);
+	else if (x < y && y > z && x < z)
+	{
+		sa(a, s);
+		ra(a, s);
+	}
+	else if (x < y && y > z)
+		rra(a, s);
 }
