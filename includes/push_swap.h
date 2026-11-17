@@ -165,7 +165,7 @@ void	radix(t_node **a, t_node **b, t_stats *s);
 void	chunk_sort(t_node **a, t_node **b, t_stats *s);
 
 /* benchmark.c */
-void	bench(t_opts o, double d, t_stats *s);
+void	bench(t_opts o, double d, int a, t_stats *s);
 
 /* bench_utils.c */
 void	init_stats(t_stats *s);
