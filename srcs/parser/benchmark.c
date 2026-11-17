@@ -6,7 +6,7 @@
 /*   By: obohbot <obohbot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 14:19:23 by obohbot           #+#    #+#             */
-/*   Updated: 2026/11/12 14:49:34 by obohbot          ###   ########.fr       */
+/*   Updated: 2026/11/17 13:00:01 by obohbot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 /* \xc2\xb2 = "2" en exposant, \xe2\x88\x9a = racine carree (UTF-8) */
 static char	*strat_label(t_opts o, double d, int a)
 {
-  if (o.strategy == STRAT_SIMPLE)
+	if (o.strategy == STRAT_SIMPLE)
 		return ("Simple / O(n\xc2\xb2)");
-  else if (o.strategy == STRAT_MEDIUM)
+	else if (o.strategy == STRAT_MEDIUM)
 		return ("Medium / O(n\xe2\x88\x9a" "n)");
-  else if (o.strategy == STRAT_COMPLEX)
+	else if (o.strategy == STRAT_COMPLEX)
 		return ("Complex / O(n log n)");
-  if (a <= 5)
-    return ("Adaptive / sort_small");
-  else if (d < 0.2)
+	if (a <= 5)
+		return ("Adaptive / sort_small");
+	else if (d < 0.2)
 		return ("Adaptive / O(n\xc2\xb2)");
-  else if (d < 0.5)
+	else if (d < 0.5)
 		return ("Adaptive / O(n\xe2\x88\x9a" "n)");
 	return ("Adaptive / O(n log n)");
 }
