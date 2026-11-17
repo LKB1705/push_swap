@@ -19,16 +19,18 @@ int	main(int argc, char **argv)
 	t_opts	opts;
 	t_stats	s;
 	double	disorder;
+  int len_a;
 
 	opts.strategy = STRAT_NONE;
 	opts.bench = 0;
 	init_stats(&s);
 	a = build_stack(argc, argv, &opts);
 	b = NULL;
+  len_a = stack_len(a);
 	disorder = comp_disorder(a);
 	choose_methode(opts, &a, &b, &s);
 	if (opts.bench)
-		bench(opts, disorder, &s);
+		bench(opts, disorder, len_a, &s);
 	free_stack(&a);
 	return (0);
 }
